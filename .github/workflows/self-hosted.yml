@@ -6,9 +6,11 @@ jobs:
   self-hosted-job:
     runs-on: [self-hosted, my-linux-runner]
     steps:
-      - name: Show hostname
-        run: hostname
-
+      - name: Show runner info
+        run: |
+          echo "Runner name: $RUNNER_NAME"
+          echo "Runner OS: $RUNNER_OS"
+      
       - name: Show working directory
         run: pwd 
 
