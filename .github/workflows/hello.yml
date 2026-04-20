@@ -1,7 +1,11 @@
 name: github workflow
 
-on:
-  push:
+  # on:
+  #  push:
+  # paths:
+  #    - '.github/workflows/hello.yml'   # Only runs if this file changes
+
+on: workflow_dispatch
 
 jobs:
   greet:
