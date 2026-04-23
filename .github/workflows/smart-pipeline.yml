@@ -26,7 +26,8 @@ jobs:
 
       - name: Feature branch
         if: github.ref != 'refs/heads/main'
-        run: echo "This is a feature branch push: ${{ github.ref }}"
+        run: |
+          echo "This is a feature branch push: ${{ github.ref }}"
 
       - name: Print commit message
         run: echo "Commit message: ${{ github.event.commits[0].message }}"
