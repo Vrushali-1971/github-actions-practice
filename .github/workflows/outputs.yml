@@ -19,5 +19,6 @@ jobs:
     needs: job_1
     steps:
       - name: Read previous job's output
-        run: echo "output: ${{ needs.job_1.outputs.today }}"
+        run: |
+          echo "output: ${{ needs.job_1.outputs.today }}"
 
