@@ -31,4 +31,4 @@ jobs:
         run: ls -R
 
       - name: Print artifact content
-        run: cat Task_4/report-1.txt
+        run: cat report-1.txt
