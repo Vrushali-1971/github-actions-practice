@@ -26,6 +26,9 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: Task_4
+       
+      - name: Debug files
+        run: ls -R
 
       - name: Print artifact content
         run: cat Task_4/report-1.txt
