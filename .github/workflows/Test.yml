@@ -11,8 +11,16 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      - name: Create a directory log and logs files
+        run: |
+          mkdir logs
+          echo "This is fine" > logs/app.log
+          echo "ERROR: something failed" >> logs/app.log 
+          echo "ERROR: Authentication failure" > logs/app2.log
+          echo "ERROR: process failed" >> logs/app2.log
+
       - name: Make script executable
-        run: chmod +x log_summary.sh
+        run: chmod +x scripts/log_summary.sh
 
       - name: Run script
-        run: ./log_summary.sh
+        run: ./scripts/log_summary.sh logs

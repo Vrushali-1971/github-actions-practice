@@ -1,7 +1,7 @@
 name: Conditionals workflow
 
 on:
-  push:
+  workflow_dispatch:
     
 jobs:
   conditions:

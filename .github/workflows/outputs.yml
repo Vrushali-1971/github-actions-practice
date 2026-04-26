@@ -1,7 +1,7 @@
 name: Job Outputs workflow
 
 on:
-  push:
+  workflow_dispatch:
 
 jobs:
   job_1:

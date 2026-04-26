@@ -1,7 +1,8 @@
 name: Pulling it together workflow
 
 on: 
-  push:      
+  workflow_dispatch:
+# push:      
 
 jobs:
   lint:
