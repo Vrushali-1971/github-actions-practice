@@ -34,9 +34,9 @@ jobs:
         run: |
           mkdir logs
           echo "This is fine" > logs/app.log
-          echo "ERROR: something failed" >> logs/app.log 
-          echo "ERROR: Authentication failure" > logs/app2.log
-          echo "ERROR: process failed" >> logs/app2.log
+          echo "All fine" >> logs/app.log 
+          echo "Authentication successful" > logs/app2.log
+          echo "process is successfully running" >> logs/app2.log
 
       - name: Make script executable
         run: chmod +x scripts/log_summary.sh
