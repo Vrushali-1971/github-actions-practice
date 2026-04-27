@@ -1,0 +1,20 @@
+name: Build Docker Image
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Build and tag Docker Image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./todo-flask-app
+          push: false
+          tags: vrushalicloud/todo-flask-app:latest
