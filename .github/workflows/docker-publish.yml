@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  build-and-push:
     runs-on: ubuntu-latest
     
     steps:
@@ -22,7 +22,17 @@ jobs:
         id: vars
         run: echo "SHORT_SHA=${GITHUB_SHA::7}" >> $GITHUB_ENV
                 
-      - name: Build and push Docker Image
+      - name: Build Docker Image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./todo-flask-app
+          push: false
+          tags: |
+            vrushalicloud/todo-flask-app:latest
+            vrushalicloud/todo-flask-app:sha-${{ env.SHORT_SHA }}
+
+      - name: Push Docker Image (main only)
+        if: github.ref == 'refs/heads/main'
         uses: docker/build-push-action@v5
         with:
           context: ./todo-flask-app
@@ -30,3 +40,5 @@ jobs:
           tags: |
             vrushalicloud/todo-flask-app:latest
             vrushalicloud/todo-flask-app:sha-${{ env.SHORT_SHA }}
+
+
