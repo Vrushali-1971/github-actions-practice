@@ -10,13 +10,16 @@ jobs:
 
     steps:
       - name: Print event type
-        run: echo "Event: ${{ github.event.action }}"
+        run: | 
+          echo "Event: ${{ github.event.action }}"
 
       - name: Print PR title
-        run: echo "PR Title: ${{ github.event.pull_request.title }}"
+        run: |
+          echo "PR Title: ${{ github.event.pull_request.title }}"
 
       - name: Print PR author
-        run: echo "Author: ${{ github.event.pull_request.user.login }}"
+        run: |
+          echo "Author: ${{ github.event.pull_request.user.login }}"
 
       - name: Print branch names
         run: |
