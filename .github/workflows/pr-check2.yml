@@ -23,6 +23,7 @@ jobs:
           else
             echo "All files are under 1MB"
           fi
+
   branch-name-check:
     runs-on: ubuntu-latest
 
@@ -37,6 +38,7 @@ jobs:
             echo "Invalid branch name"
             exit 1
           fi
+
   pr-body-check:
     runs-on: ubuntu-latest
 
@@ -49,4 +51,3 @@ jobs:
           else
             echo "PR description present"
           fi
-
