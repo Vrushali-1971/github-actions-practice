@@ -12,7 +12,6 @@ jobs:
       - name: Print event type
         run: echo "Event: ${{ github.event.action }}"
 
-      
       - name: Print PR title
         run: echo "PR Title: ${{ github.event.pull_request.title }}"
 
