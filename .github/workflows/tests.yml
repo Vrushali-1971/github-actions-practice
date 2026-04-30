@@ -13,6 +13,3 @@ jobs:
 
       - name: Simulate test success
         run: echo "Tests passed!"
-
-      - name: Intentional fail
-        run: exit 1
