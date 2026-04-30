@@ -13,7 +13,11 @@ jobs:
     steps:
       - name: Print schedule trigger
         run: |
-          echo "Triggered by: ${{ github.event.schedule }}"
+          if [ -z "${{ github.event.schedule }}" ]; then
+            echo "Triggered manually"
+          else 
+            echo "Triggered by schedule: ${{ github.event.schedule }}"
+          fi
 
       - name: Health check
         run: |
