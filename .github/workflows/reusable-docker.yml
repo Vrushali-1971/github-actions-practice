@@ -19,6 +19,7 @@ on:
 
     outputs:
       image_url:
+        description: "Docker image URL"
         value: ${{ jobs.docker-build-push.outputs.image_url }}
 
 
@@ -50,3 +51,4 @@ jobs:
         id: set-image
         run: |
           echo "image_url=${{ inputs.image_name }}:${{ inputs.tag }}" >> $GITHUB_OUTPUT
+          echo "DEBUG: image_url=${{ inputs.image_name }}:${{ inputs.tag }}"
