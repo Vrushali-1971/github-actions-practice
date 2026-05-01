@@ -18,7 +18,8 @@ jobs:
 
     steps:
       - name: Print PR Summary
-        run: echo "PR checks passed for the branch: ${{ github.head_ref }}"
+        run: |
+          echo "PR checks passed for branch: ${{ github.head_ref }}"
       
 
      
