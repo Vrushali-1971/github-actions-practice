@@ -32,6 +32,9 @@ jobs:
       docker_username: ${{ secrets.DOCKER_USERNAME }}
       docker_token: ${{ secrets.DOCKER_TOKEN }}
 
+    outputs:
+      image_url: ${{ jobs.docker.outputs.image_url }}
+
   deploy:
     needs: docker
     runs-on: ubuntu-latest
