@@ -42,4 +42,5 @@ jobs:
           echo "Deploying image: ${{ needs.docker.outputs.image_url }}"
       
       - name: Debug Docker Output
-        run: echo "Output is: ${{ needs.docker.outputs.image_url }}"
+        run: |
+          echo "Output is: ${{ needs.docker.outputs.image_url }}"
