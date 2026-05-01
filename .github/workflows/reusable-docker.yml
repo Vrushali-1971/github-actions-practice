@@ -39,6 +39,11 @@ jobs:
         with:
           username: ${{ secrets.docker_username }}
           password: ${{ secrets.docker_token }}
+
+      - name: Debug Inputs
+        run: |
+          echo "IMAGE_NAME = ${{ inputs.image_name }}"
+          echo "TAG = ${{ inputs.tag }}"
                       
       - name: Build and push the image 
         uses: docker/build-push-action@v5
@@ -52,5 +57,8 @@ jobs:
         run: |
           IMAGE="${{ inputs.image_name }}"
           TAG="${{ inputs.tag }}"
-          echo "image_url=$IMAGE:$TAG" >> $GITHUB_OUTPUT
-          echo "DEBUG: image_url=$IMAGE:$TAG"
+          VALUE="$IMAGE:$TAG"
+          echo "image_url=$VALUE" >> "$GITHUB_OUTPUT"
+          echo "DEBUG OUTPUT SET: $VALUE"
+
+
