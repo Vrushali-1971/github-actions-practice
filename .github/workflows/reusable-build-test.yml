@@ -17,7 +17,10 @@ on:
 jobs:
   build-test:
     runs-on: ubuntu-latest
-
+    defaults:
+      run:
+        working-directory: capstone-project
+    
     outputs:
       test_result: ${{ steps.set-result.outputs.result }}
    
@@ -33,21 +36,21 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          if [ -f capstone-project/requirements.txt ]; then 
-            pip install -r capstone-project/requirements.txt
+          if [ -f requirements.txt ]; then 
+            pip install -r requirements.txt
           fi
 
       - name: Start App
         run: |
-          python capstone-project/app.py &
+          python app.py &
           sleep 5
 
       - name: Run Tests
         id: test-step
         if: ${{ inputs.run_tests }}
         run: |
-          chmod +x capstone-project/test.sh
-          ./capstone-project/test.sh
+          chmod +x test.sh
+          ./test.sh
         continue-on-error: true
 
       - name: Set Output 
