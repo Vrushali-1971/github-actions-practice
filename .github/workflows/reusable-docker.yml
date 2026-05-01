@@ -17,6 +17,11 @@ on:
         docker_token:
           required: true
 
+    outputs:
+      image_url:
+        value: ${{ jobs.docker-build-push.outputs.image_url }}
+
+
 jobs:
   docker-build-push:
     runs-on: ubuntu-latest
