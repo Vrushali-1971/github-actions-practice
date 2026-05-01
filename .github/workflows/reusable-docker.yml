@@ -50,5 +50,7 @@ jobs:
       - name: Set Image URL
         id: set-image
         run: |
-          echo "image_url=${{ inputs.image_name }}:${{ inputs.tag }}" >> "$GITHUB_OUTPUT"
-          echo "DEBUG: image_url=${{ inputs.image_name }}:${{ inputs.tag }}"
+          IMAGE="${{ inputs.image_name }}"
+          TAG="${{ inputs.tag }}"
+          echo "image_url=$IMAGE:$TAG" >> $GITHUB_OUTPUT
+          echo "DEBUG: image_url=$IMAGE:$TAG"

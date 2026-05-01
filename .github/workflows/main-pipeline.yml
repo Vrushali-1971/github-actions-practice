@@ -36,6 +36,8 @@ jobs:
     needs: docker
     runs-on: ubuntu-latest
 
+    environment: production
+
     steps:
       - name: Deploy Step
         run: |
