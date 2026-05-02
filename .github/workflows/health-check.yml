@@ -39,7 +39,7 @@ jobs:
           docker rm myapp || true
 
       - name: Generate Summary
-        run |
+        run: |
           echo "## Health Check Report" >> $GITHUB_STEP_SUMMARY
           echo "- Image: vrushalicloud/capstone-project:latest" >> $$GITHUB_STEP_SUMMARY
           echo "- Status: PASSED" >> $GITHUB_STEP_SUMMARY
