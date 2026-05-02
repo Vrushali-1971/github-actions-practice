@@ -3,7 +3,7 @@ name: Scheduled Health Check
 on:
   schedule:
     - cron: '0 */12 * * *'   # every 12 hours
-  worflow_dispatch:
+  workflow_dispatch:
 
 jobs:
   health-check:
