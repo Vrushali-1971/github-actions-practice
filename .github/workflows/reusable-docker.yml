@@ -63,4 +63,18 @@ jobs:
           echo "image_url=$VALUE" >> "$GITHUB_OUTPUT"
           echo "DEBUG OUTPUT SET: $VALUE"
 
+      - name: Run Trivy vulnerability scan
+        uses: aquasecurity/trivy-action@0.35.0
+        with:
+          image-ref: ${{ inputs.image_name }}:${{ inputs.tag }}
+          format: table
+          output: trivy-report.txt
+          severity: CRITICAL
+          exit-code: 1
 
+      - name: Upload Trivy scan report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: trivy-scan-report
+          path: trivy-report.txt
