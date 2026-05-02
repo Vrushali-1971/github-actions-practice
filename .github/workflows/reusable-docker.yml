@@ -20,7 +20,7 @@ on:
     outputs:
       image_url:
         description: "Docker image URL"
-        value: ${{ jobs['docker-build-push']outputs.image_url }}
+        value: ${{ jobs['docker-build-push'].outputs.image_url }}
 
 
 jobs:
