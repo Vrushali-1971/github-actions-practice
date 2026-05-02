@@ -23,14 +23,14 @@ jobs:
       - name: Health check
         run: |
           status=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:5000)
-        echo "HTTP status: $status"
+          echo "HTTP status: $status"
         
-        if [ "$status" -eq 200 ]; then
-          echo "result=PASSED" >> $GITHUB_OUTPUT
-        else
-          echo "result=FAILED" >> $GITHUB_OUTPUT
-          exit 1
-        fi
+          if [ "$status" -eq 200 ]; then
+            echo "result=PASSED" >> $GITHUB_OUTPUT
+          else
+            echo "result=FAILED" >> $GITHUB_OUTPUT
+            exit 1
+          fi
 
       - name: Stop and remove container
         if: always()
