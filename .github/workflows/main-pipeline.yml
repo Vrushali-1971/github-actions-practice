@@ -6,7 +6,7 @@ on:
 
 jobs:
   build-test:
-    uses: ./.github/workflows/reusable-build-test.yml
+    uses: ./.github/workflows/reusable-build-test.yml 
     with: 
       python_version: "3.9"
       run_tests: true
