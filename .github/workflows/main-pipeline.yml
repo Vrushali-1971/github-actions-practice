@@ -4,11 +4,14 @@ on:
   push:
     branches: [main] 
 
+permissions:
+  contents: read
+
 jobs:
   build-test:
     uses: ./.github/workflows/reusable-build-test.yml 
     with: 
-      python_version: "3.9"
+      python_version: "3.11"
       run_tests: true
 
   get-sha:
