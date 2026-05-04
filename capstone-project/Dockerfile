@@ -1,6 +1,6 @@
 # --- STAGE 1: Build Stage (The "Kitchen") ---
 # Use a slim Python image to keep the initial footprint small
-FROM python:3.9-slim AS builder
+FROM python:3.11-slim AS builder
 
 # Create a directory inside the container for our application files
 WORKDIR /app
@@ -21,13 +21,17 @@ RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 # --- STAGE 2: Runtime Stage (The "Dining Room") ---
 
 # Start fresh with a new slim image to leave behind build tools and caches
-FROM python:3.9-slim
+FROM python:3.11-slim
 
 # Set the working directory for the final container
 WORKDIR /app
 
+# Prevent interactive prompts
+ENV DEBIAN_FRONTEND=noninteractive
+
 # Install curl for healthcheck
-RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get upgrade -y && apt-get install -y curl \
+&& apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # SECURITY: Create a non-root user
 RUN adduser --disabled-password devopsuser
@@ -53,6 +57,3 @@ HEALTHCHECK --interval=30s --timeout=5s --start-period=5s \
 
 # The command that starts the Flask application when the container launches
 CMD ["python", "app.py"] 
-
-
-
