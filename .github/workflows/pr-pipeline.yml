@@ -19,6 +19,7 @@ jobs:
           fail-on-severity: critical
   
   build-test:
+    needs: dependency-scan
     uses: ./.github/workflows/reusable-build-test.yml
     with:
       python_version: "3.11"
