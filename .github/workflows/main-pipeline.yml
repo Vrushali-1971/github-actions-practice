@@ -5,7 +5,7 @@ on:
     branches: [main] 
 
 permissions:
-  contents: read           # permissions
+  contents: read          
 
 jobs:
   build-test:
@@ -44,7 +44,7 @@ jobs:
     steps:
       - name: Deploy Step
         run: |
-          echo "Deploying image: ${{ needs.docker.outputs.image_url }}"
+          echo "Deploying image: ${{ needs.docker.outputs.image_url }} to production"
       
       - name: Debug Docker Output
         run: |
