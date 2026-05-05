@@ -1,3 +1,4 @@
 change
 trigger check
 test branch rule
+dummy text
